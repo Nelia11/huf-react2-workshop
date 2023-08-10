@@ -11,6 +11,7 @@ import LoginPage from './pages/Login';
 import SignUpPage from './pages/Signup';
 import ProjectsPage from './pages/Projects';
 import ErrorPage from './pages/Error';
+import VerifyEmail from './pages/Veryify-email';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
   {
     path: '/sign-up',
     element: <SignUpPage />
+  },
+  {
+    path: '/verify-email',
+    element: <VerifyEmail/>
   },
   {
     path: '/projects',
