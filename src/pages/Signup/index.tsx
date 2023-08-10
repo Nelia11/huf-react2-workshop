@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
 import { TextField, Typography } from '@mui/material';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
@@ -20,7 +19,7 @@ function SignUpPage() {
       try {
         const response = await axios({
           method: 'post',
-          url: 'http://byrdbox-env.eba-4kxk4yka.eu-north-1.elasticbeanstalk.com/auth/sign-up',
+          url: 'http://byrdbox-env.eba-4kxk4yka.eu-north-1.elasticbeanstalk.com/auth/signup',
           data : {
             name,
             familyName: lastName,
@@ -29,9 +28,13 @@ function SignUpPage() {
             email
           }
         })
+
         if (response.status === 200 && response.statusText === 'OK') {
-          navigate('/verify-email');
+          console.log(email)
+          navigate('/verify-email', {state: {email}});
         }
+        console.log(email)
+        console.log(response)
       } catch (error) {
         console.error(error);
       }
