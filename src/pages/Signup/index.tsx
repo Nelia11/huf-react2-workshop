@@ -30,11 +30,8 @@ function SignUpPage() {
         })
 
         if (response.status === 200 && response.statusText === 'OK') {
-          console.log(email)
           navigate('/verify-email', {state: {email}});
         }
-        console.log(email)
-        console.log(response)
       } catch (error) {
         console.error(error);
       }

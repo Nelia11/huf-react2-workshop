@@ -35,7 +35,6 @@ function VerifyEmail()  {
                     }
                 })
                 if (response.status === 200 && response.statusText === 'OK') {
-                    console.log(response.data); // {verified: true}
                     navigate('/login');
                 } 
             } catch (error) {
