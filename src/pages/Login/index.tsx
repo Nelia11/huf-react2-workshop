@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import { TextField, Typography } from '@mui/material';
 import './Login.css'
 import axios from 'axios';
-import { useNavigate } from "react-router-dom";
+import {  } from "react-router-dom";
 
 function LoginPage() {
   const [email, setEmail] = useState<string>('');
@@ -24,8 +24,8 @@ function LoginPage() {
           }
         })
         if (response.status === 200 && response.statusText === 'OK') {
-          console.log(response.data);
-          navigate('/projects');
+          const accessToken = response.data.idToken;
+          navigate('/projects', {state: {accessToken}});
         } 
       } catch(e) {
         console.error(e);
